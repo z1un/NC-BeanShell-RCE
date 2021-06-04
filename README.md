@@ -21,6 +21,6 @@ exec("cmd /c whoami")
 exec("/bin/sh whoami")
 ```
 
-注：该脚本中的命令执行, 仅适用于Windoes, Linux请手动测试, 如路径中包含 `\` 请替换为 `\\` 。
+注：该脚本中的命令执行, 仅适用于Windoes, Linux请手动测试。
 
 ![image-20210604183648070](https://oss.zjun.info/zjun.info/20210604183654.png)
